@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Benji Pays">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a6fd4"/>
+      <stop offset="100%" stop-color="#0d4a9e"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#bg)"/>
+  <path fill="#ffffff" d="M36 32h32c17.7 0 32 11.6 32 26s-14.3 26-32 26H52v16H36V32zm16 16v20h16c8.8 0 16-5.4 16-12s-7.2-12-16-12H52z"/>
+  <circle cx="96" cy="96" r="10" fill="#7dd3fc" opacity="0.9"/>
+</svg>

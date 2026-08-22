@@ -1,0 +1,36 @@
+{
+  "name": "benji-pays",
+  "version": "1.0.0",
+  "description": "Chase overdue QuickBooks and Xero invoices with Benji Pays — list AR, inspect reminder emails and autopay, and draft customer outreach with stable Pay Now links.",
+  "author": {
+    "name": "Benji Pays",
+    "email": "benji@benjipays.com"
+  },
+  "homepage": "https://benjipays.com",
+  "repository": "https://github.com/bpays/cursor-plugin",
+  "license": "MIT",
+  "keywords": [
+    "benji-pays",
+    "quickbooks",
+    "qbo",
+    "xero",
+    "invoices",
+    "accounts-receivable",
+    "overdue",
+    "payments",
+    "autopay",
+    "mcp"
+  ],
+  "logo": "assets/logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "BENJI_PAYS_API_KEY": {
+        "type": "string",
+        "title": "Benji Pays API key",
+        "description": "Organization-scoped merchant API key from the Benji Pays app (Settings → API Keys). Sent as the x-api-key header to authenticate the Benji Pays MCP server."
+      }
+    },
+    "required": ["BENJI_PAYS_API_KEY"]
+  }
+}
