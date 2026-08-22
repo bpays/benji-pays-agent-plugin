@@ -91,7 +91,9 @@ Use Benji's integrated manual-processing/virtual-terminal workflow to process on
 
 - Gateway list: https://support.benjipays.com/support/solutions/articles/150000210223-payment-gateway-integrations
 - QBO connection: https://support.benjipays.com/support/solutions/articles/150000210215-quickbooks-online-connection
-- QBD connection notes: https://support.benjipays.com/support/solutions/articles/150000207569-quickbooks-web-connector-installation-support-limitations
+- QBD Web Connector setup: https://support.benjipays.com/support/solutions/articles/150000210219-quickbooks-desktop-webconnector-connection
+- QBD installation/support boundaries: https://support.benjipays.com/support/solutions/articles/150000207569-quickbooks-web-connector-installation-support-limitations
+- Xero connection: https://support.benjipays.com/support/solutions/articles/150000210218-xero-connection
 - Xero app listing: https://apps.xero.com/ca/app/benji-pays
 - Refunds: https://support.benjipays.com/support/solutions/articles/150000019557-refunding-a-transaction
 - Voids: https://support.benjipays.com/support/solutions/articles/150000019556-voiding-a-transaction

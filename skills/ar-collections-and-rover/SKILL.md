@@ -49,7 +49,7 @@ GET /v2/invoices?status=open&limit=100&offset=0
 GET /v2/invoices/{invoiceId}?include=accounting
 ```
 
-Status values are `open`, `overdue`, and `paid`. Follow `pagination.hasMore` and `pagination.nextOffset`.
+Status values are `open`, `overdue`, and `paid`. The `status=open` query means **all unpaid invoices**, including returned items whose status is `overdue`; `status=overdue` narrows to past-due unpaid invoices. To show unpaid but not overdue, fetch `status=open` and retain returned items with `status: "open"`. Follow `pagination.hasMore` and `pagination.nextOffset`.
 
 Summarize invoice number, customer, amount, currency, due date, and days overdue. Separate “overdue” from “open but not due.”
 
@@ -103,6 +103,9 @@ If customer-level Rover is off, no Rover log is created for that customer.
 ## Official guides
 
 - Overdue email rule: https://support.benjipays.com/support/solutions/articles/150000180231-automatically-send-an-email-when-an-invoice-is-overdue-
+- New-invoice rule: https://support.benjipays.com/support/solutions/articles/150000180149-automatically-send-email-reminder-when-invoice-is-created
+- Before-due rule: https://support.benjipays.com/support/solutions/articles/150000179217-automatically-send-email-reminder-when-invoice-is-coming-due
+- Customer-level enablement: https://support.benjipays.com/support/solutions/articles/150000184512-how-to-enable-invoice-rover-notifications-in-your-customer-s-settings
 - Invoice Rover general notes: https://support.benjipays.com/support/solutions/articles/150000182877-invoice-rover-general-notes
 - Invoice Rover product page: https://benjipays.com/invoice-rover/
 - Feature overview: https://benjipays.com/features/

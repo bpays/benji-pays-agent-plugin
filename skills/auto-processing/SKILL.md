@@ -16,9 +16,9 @@ An ordinary invoice can auto-process only when all core gates are satisfied:
 1. Company Auto Processing is enabled under **Settings → Company Settings → Auto Processing Settings**.
 2. Auto Processing is enabled for the customer (default is on for customers, but verify it).
 3. The customer has a valid, enabled payment profile selected for Auto Processing.
-4. The invoice due date has been reached.
+4. The invoice due date, adjusted by any configured Delay Days, has been reached.
 
-Additional settings can change eligibility: company start date, run hour/timezone, invoice memo rules, payment terms, amount rules, and installment schedules. Inspect configuration rather than assuming “autopay on” guarantees a charge.
+Additional settings can change eligibility: company start date, run hour/timezone, invoice skip rules, payment terms, amount rules, and installment schedules. For QBO/QBD, skip rules can use memo/message text or payment terms; Xero can skip by branding theme. The configured run hour queues the daily process and is not an exact execution-time guarantee. Inspect configuration rather than assuming “autopay on” guarantees a charge.
 
 ## Configure-first workflow
 
@@ -80,6 +80,7 @@ For declined charges, use transaction reporting (and `GET /v2/transactions` wher
 ## Official guides
 
 - Auto Processing setup: https://support.benjipays.com/support/solutions/articles/150000180671-auto-processing-setup
+- Scheduling, delays, and skips: https://support.benjipays.com/support/solutions/articles/150000099549-auto-processing-and-invoice-skip-settings
 - Customer Auto Processing behavior: https://support.benjipays.com/support/solutions/articles/150000185425-if-i-enable-auto-processing-for-a-customer-will-invoices-be-auto-paid-
 - Product features and payment rails: https://benjipays.com/features/
 - Forecast API: https://developer.benjipays.com/reference/get_v2-autoprocessing-forecast.md

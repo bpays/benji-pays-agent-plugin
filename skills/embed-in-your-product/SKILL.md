@@ -60,7 +60,7 @@ Check each endpoint's actor and scope requirements in the current OpenAPI docs.
 
 ### Show AR in a SaaS dashboard
 
-1. `GET /v2/invoices?status=open` and `?status=overdue`.
+1. `GET /v2/invoices?status=open` for all unpaid invoices and `?status=overdue` for only past-due unpaid invoices. The open filter includes overdue results.
 2. Page using `pagination.hasMore` and `pagination.nextOffset`.
 3. Join customer summaries by accounting customer ID only when needed.
 4. Render totals and due dates; do not cache sensitive data longer than necessary.
@@ -75,7 +75,7 @@ Check each endpoint's actor and scope requirements in the current OpenAPI docs.
 
 ### Take a deposit or payment without an invoice
 
-Call `POST /v2/payment-links/unapplied` at click time. The resulting payment enters the “payment to apply” workflow; it does not create an accounting invoice automatically.
+Call `POST /v2/payment-links/unapplied` at click time with required `source` (`default` or `quoter`), `amount`, `currency`, `name`, and `reference`. The resulting payment enters the “payment to apply” workflow; it does not create an accounting invoice automatically. Optional `returnUrl` must be HTTPS and is host-restricted.
 
 ### Explain an upcoming autopay run
 
@@ -94,7 +94,7 @@ Use Partner API organizations/plans/usage with Auth0 M2M. Store per-organization
 - Base URL: `https://api.benjipays.com/v2`
 - Errors: RFC 7807 `application/problem+json`; branch on HTTP status and problem `type`, not text matching `detail`.
 - Pagination: offset-based; follow `hasMore`/`nextOffset`. Merchant list endpoints generally permit up to 1000; forecast max is 100; endpoint schema wins.
-- Idempotency: send `Idempotency-Key` on POST/PATCH/PUT. It is actor-scoped and cached for 24 hours; same key/different body returns `409`; in-flight duplicate returns `429` with `Retry-After`.
+- Idempotency: send an alphanumeric `Idempotency-Key` (1–255 characters) on POST/PATCH/PUT. It is actor-scoped and cached for 24 hours; same key/different body returns `409`; in-flight duplicate returns `429` with `Retry-After`.
 - Rate limits: honor `X-RateLimit-*` and `Retry-After`.
 - Tracing: log `X-Request-ID` / `X-Correlation-ID`, not secrets or payment data.
 
