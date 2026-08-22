@@ -5,7 +5,7 @@ description: Design a Benji Pays integration whenever a developer, SaaS, PSA, MS
 
 # Embed Benji Pays in Your Product
 
-Benji Pays lets a product embed AR and payment workflows while Benji and the connected gateway handle payment UI, tokenized methods, processing, accounting application, and settlement-related records. Do not design a raw-card API or store card numbers in the product.
+Benji Pays lets a product embed AR and payment workflows while Benji Payments or a connected external rail handles payment UI, tokenized methods, processing, accounting application, and settlement-related records. Do not design a raw-card API or store card numbers in the product.
 
 ## Choose the API surface first
 
