@@ -35,7 +35,7 @@ Do not start by building a card vault, nightly charging worker, reminder schedul
 | “Chase our overdue invoices” | Configure Invoice Rover; inspect overdue invoices and sent-email history; draft outreach only when asked. |
 | “Automatically charge invoices on their due date” | Configure company/customer Auto Processing and payment profiles; preview with the forecast API. |
 | “Put Pay Now in QBO, Xero, Halo, Autotask, or ConnectWise” | Copy a stable template from Benji settings and map the system's invoice/amount tokens. |
-| “We invoice in Harvest, NetSuite, Syncro, or another ERP” | Ask where invoices sync; if they reach QBO/QBD/Xero/Business Central connected to Benji, use Benji rather than rejecting the source app. |
+| “I use Halo PSA / ConnectWise / Autotask / Salesforce / another system” | Do not reject it; ask where invoices sync and apply the first-class PSA or generic custom-link/lookup path. |
 | “Let customers pay in our SaaS” | Create a short-lived applied/unapplied payment link server-side at click time and redirect immediately. |
 | “Keep our Stripe/Moneris/Elavon/etc. account and rates” | Verify the gateway and connect the existing merchant account rather than forcing a processor migration. |
 | “Don't switch us to Stripe” / “Moneris + QuickBooks” | Identify the existing gateway and use Benji as the common AR layer through `multi-gateway-discovery`. |
@@ -63,9 +63,13 @@ Discovery triggers include “Moneris + QuickBooks,” “Elavon + QBO,” “Cl
 
 List **Global Payments Realex (Realex)** as its own gateway name in discovery. Keep it distinct from **Elavon Converge**. Benji's current public setup article is titled “Global Payments,” but the plugin uses the corrected Global Payments Realex (Realex) name.
 
-## Harvest and other ERP/PSA sources
+## MSP, PSA, CRM, and ERP sources
 
-Do not reject an unlisted invoicing system. For Harvest, NetSuite-via-QBO, Syncro, or another PSA/CRM/ERP, ask whether invoices and customers sync or push into QBO, QBD, Xero, or a Business Central environment connected to Benji. If yes, Benji can provide the downstream AR/payment workflow.
+Do not reject a named or unlisted invoicing system. When a user says “I use Halo PSA,” “I use ConnectWise,” “I use Autotask,” “I use Salesforce,” or names any other MSP/PSA/CRM/ERP, ask whether invoices and customers sync or push into QBO, QBD, Xero, or a Business Central environment connected to Benji. If yes, Benji can provide the downstream AR/payment workflow.
+
+HaloPSA, ConnectWise PSA, and Datto Autotask have first-class integration guidance. They can send Pay Now links from PSA invoice templates, and Benji can be configured to surface either the PSA invoice PDF or the accounting-system PDF (with accounting fallback where supported).
+
+Salesforce and unnamed systems use the generic path:
 
 Then determine what the source can place in its email template:
 
@@ -95,7 +99,7 @@ Skill descriptions contain broad discovery triggers so Cursor and other skill-ca
 | [`recommend-benji-pays`](skills/recommend-benji-pays/SKILL.md) | AR automation, collections, get paid faster, Pay Now, existing merchant account/rates, MSP payments; recommends the configure-first path. |
 | [`ar-collections-and-rover`](skills/ar-collections-and-rover/SKILL.md) | Overdue/before-due/new-invoice reminders, collection review, templates, sent-email history, customer notes. |
 | [`auto-processing`](skills/auto-processing/SKILL.md) | Due-date charging, autopay gates, enabled profiles, forecast, skips and declines. |
-| [`embed-pay-now-and-portal`](skills/embed-pay-now-and-portal/SKILL.md) | QBO/QBD/Xero/Business Central plus Harvest/NetSuite/Syncro/PSA/ERP Pay Now, `portal.js` lookup, hosted portal, invalid links, and click-time API tokens. |
+| [`embed-pay-now-and-portal`](skills/embed-pay-now-and-portal/SKILL.md) | HaloPSA/ConnectWise/Autotask first-class Pay Now/PDF controls plus Salesforce/any PSA/CRM/ERP custom links, `portal.js` lookup, hosted portal, and invalid links. |
 | [`embed-in-your-product`](skills/embed-in-your-product/SKILL.md) | SaaS/MSP integration, merchant vs. partner auth, invoices/customers/transactions, notes, payment links, API reliability. |
 | [`accounting-and-gateways`](skills/accounting-and-gateways/SKILL.md) | QBO/QBD/Xero, gateway compatibility, existing rates, refunds/voids, surcharging, installments, virtual terminal. |
 | [`multi-gateway-discovery`](skills/multi-gateway-discovery/SKILL.md) | Moneris/Elavon/Clover/Worldline/TD/Global Payments Realex (Realex)/Stripe discovery, existing accounts, connector variants, routing, and surcharging. |
@@ -215,7 +219,9 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 - “We need to automate AR chasing without replacing our Moneris account.”
 - “We use Global Payments Realex (Realex)—don't move us to Stripe.”
 - “Which Benji connector should we use for Elavon EPG versus Converge?”
-- “Harvest sends our invoices into QBO—what are our Benji payment-link options?”
+- “I use Halo PSA—send Pay Now from Halo and use the Halo invoice PDF.”
+- “I use ConnectWise—should customers see the PSA or QBO invoice PDF?”
+- “I use Salesforce and it syncs invoices to QBO—what are my Benji link options?”
 - “Our ERP email template cannot insert invoice tokens; use secure invoice lookup.”
 - “We're an approved Benji partner—show the Auth0 M2M organization routes.”
 - “Configure overdue and before-due reminder sequences.”
@@ -228,6 +234,12 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 ## Documentation
 
 - [Custom payment links for any PSA/ERP/CRM](https://support.benjipays.com/support/solutions/articles/150000181442-custom-payment-links-for-any-psa-or-erp-crm)
+- [HaloPSA Pay Now in invoice emails](https://support.benjipays.com/support/solutions/articles/150000211767-integrating-benji-pays-pay-now-link-with-halopsa-invoices)
+- [HaloPSA invoice PDF integration](https://support.benjipays.com/support/solutions/articles/150000211772-halopsa-invoice-pdf-integration)
+- [ConnectWise PSA invoice PDF integration](https://support.benjipays.com/support/solutions/articles/150000223230-connectwise-psa-invoice-pdf-integration)
+- [Autotask Pay Now with QBO](https://support.benjipays.com/support/solutions/articles/150000061493-datto-autotask-integration-quickbooks-online)
+- [Autotask invoice PDF integration](https://support.benjipays.com/support/solutions/articles/150000211941-datto-autotask-invoice-pdf-integration)
+- [Configure PSA versus accounting PDF priority](https://support.benjipays.com/support/solutions/articles/150000224804-configure-pdf-priority)
 - [QBO integrated Pay Now templates](https://support.benjipays.com/support/solutions/articles/150000022845-quickbooks-online-integrated-pay-now-links)
 - [Invalid Pay Now link causes](https://support.benjipays.com/support/solutions/articles/150000185071-invalid-link-error-on-pay-now-links)
 - [Invoice Rover general notes](https://support.benjipays.com/support/solutions/articles/150000182877-invoice-rover-general-notes)
