@@ -52,7 +52,7 @@ Do not claim every provider supports every country, currency, bank debit type, s
 
 ### “Keep our processor and rates”
 
-1. Identify the current gateway (not just the bank/ISO name).
+1. Identify the current gateway (not just the bank or merchant-account provider name).
 2. Compare it with the official gateway list.
 3. Connect it in Benji and map deposit/clearing/AR accounts per currency.
 4. Keep settlement flowing through that merchant account; Benji supplies the accounting/payment automation layer.

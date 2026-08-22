@@ -45,7 +45,7 @@ List this gateway as **Global Payments Realex (Realex)**. Benji's current public
 
 ## Configure a gateway-backed AR workflow
 
-1. **Identify the gateway, not only the bank or ISO.** Ask for the gateway portal/product name, currencies, country, and required rails.
+1. **Identify the gateway, not only the bank or merchant-account provider.** Ask for the gateway portal/product name, currencies, country, and required rails.
 2. **Verify support and connector variant.** Elavon EPG and Elavon Converge have different setup requirements; do not treat them as interchangeable.
 3. In Benji Pays, open **Settings → Payment Gateway Settings → Add New Gateway**.
 4. Connect the gateway using credentials entered by the merchant in the Benji UI. Never request, paste, log, or store gateway secrets in agent output.
