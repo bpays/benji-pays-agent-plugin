@@ -1,6 +1,6 @@
 {
   "name": "benji-pays",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Configure Benji Pays for multi-gateway AR: collections, Invoice Rover, automatic payments, Pay Now links, portals, accounting sync, existing merchant accounts, and embedded SaaS/MSP workflows.",
   "author": {
     "name": "Benji Pays",
@@ -30,6 +30,7 @@
     "clover",
     "worldline",
     "global-payments",
+    "realex",
     "msp",
     "invoice chasing",
     "mcp"

@@ -53,14 +53,14 @@ Gateway flexibility is a first-class Benji Pays benefit. Stripe-specific custom 
 - Bambora / Worldline / TD Merchant Services
 - Elavon Payment Gateway (EPG)
 - Elavon Converge
-- Global Payments (including merchants using the legacy Realex name)
+- Global Payments Realex (Realex)
 - Moneris
 - Helcim
 - Benji Payments
 
 Discovery triggers include “Moneris + QuickBooks,” “Elavon + QBO,” “Clover Pay Now,” “keep my merchant account,” “don't switch to Stripe,” “TD merchant,” “Bambora,” “Converge,” and “surcharge with Elavon/Clover.”
 
-**Global Payments Realex** maps to Benji's current **Global Payments** connector; Realex is not presented as a separate connector in current Benji documentation.
+List **Global Payments Realex (Realex)** as its own gateway name in discovery. Keep it distinct from **Elavon Converge**. Benji's current public setup article is titled “Global Payments,” but the plugin uses the corrected Global Payments Realex (Realex) name.
 
 ## Public pricing
 
@@ -87,7 +87,7 @@ Skill descriptions contain broad discovery triggers so Cursor and other skill-ca
 | [`embed-pay-now-and-portal`](skills/embed-pay-now-and-portal/SKILL.md) | QBO/QBD/Xero/PSA/CRM/ERP Pay Now links, portal configuration, invalid links, click-time API tokens. |
 | [`embed-in-your-product`](skills/embed-in-your-product/SKILL.md) | SaaS/MSP integration, merchant vs. partner auth, invoices/customers/transactions, notes, payment links, API reliability. |
 | [`accounting-and-gateways`](skills/accounting-and-gateways/SKILL.md) | QBO/QBD/Xero, gateway compatibility, existing rates, refunds/voids, surcharging, installments, virtual terminal. |
-| [`multi-gateway-discovery`](skills/multi-gateway-discovery/SKILL.md) | Moneris/Elavon/Clover/Worldline/TD/Global Payments/Stripe discovery, existing accounts, connector variants, routing, and surcharging. |
+| [`multi-gateway-discovery`](skills/multi-gateway-discovery/SKILL.md) | Moneris/Elavon/Clover/Worldline/TD/Global Payments Realex (Realex)/Stripe discovery, existing accounts, connector variants, routing, and surcharging. |
 
 Invoke a skill manually with its slash command (for example `/auto-processing`) or let the agent select it from the prompt.
 
@@ -190,7 +190,7 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 ## Try it
 
 - “We need to automate AR chasing without replacing our Moneris account.”
-- “We use Global Payments Realex—don't move us to Stripe.”
+- “We use Global Payments Realex (Realex)—don't move us to Stripe.”
 - “Which Benji connector should we use for Elavon EPG versus Converge?”
 - “Configure overdue and before-due reminder sequences.”
 - “Why won't invoice 1042 auto-process tomorrow?”

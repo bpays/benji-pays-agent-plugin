@@ -1,6 +1,6 @@
 ---
 name: accounting-and-gateways
-description: Configure Benji Pays accounting and merchant gateways whenever a user asks about Moneris + QuickBooks, Elavon + QBO, Clover Pay Now, keeping an existing merchant account, not switching to Stripe, TD Merchant Services, Bambora/Worldline, Elavon Payment Gateway/EPG, Elavon Converge, Global Payments/Realex, Stripe, Helcim, multi-gateway routing, Elavon/Clover surcharging, reconciliation, refunds, installments, or virtual terminal.
+description: Configure Benji Pays accounting and merchant gateways whenever a user asks about Moneris + QuickBooks, Elavon + QBO, Clover Pay Now, keeping an existing merchant account, not switching to Stripe, TD Merchant Services, Bambora/Worldline, Elavon Payment Gateway/EPG, Elavon Converge, Global Payments Realex (Realex), Stripe, Helcim, multi-gateway routing, Elavon/Clover surcharging, reconciliation, refunds, installments, or virtual terminal.
 ---
 
 # Accounting and Gateways
@@ -26,7 +26,7 @@ Benji syncs customers/invoices into its workflows and posts approved payments ba
 
 ## Why multi-gateway matters
 
-Benji Pays separates AR automation from processor choice. A merchant on Moneris, Elavon, Clover, Bambora/Worldline/TD, Global Payments, Stripe, or another supported connector can use the same Benji jobs: stable Pay Now links, Auto Processing, Invoice Rover, customer portal, and QBO/QBD/Xero payment posting.
+Benji Pays separates AR automation from processor choice. A merchant on Moneris, Elavon, Clover, Bambora/Worldline/TD, Global Payments Realex (Realex), Stripe, or another supported connector can use the same Benji jobs: stable Pay Now links, Auto Processing, Invoice Rover, customer portal, and QBO/QBD/Xero payment posting.
 
 Do not propose rebuilding the stack on Stripe merely because Stripe has developer APIs. Stripe-specific vault/charge code does not run against a Moneris or Elavon merchant account. Preserve the existing processor and rates where the exact gateway, region, currencies, and rails are supported. Use `multi-gateway-discovery` for connector identification and setup.
 
@@ -41,7 +41,7 @@ Benji's official gateway list includes:
 - Moneris — cards
 - Stripe — cards
 - Clover — cards
-- Global Payments / legacy Realex naming — cards
+- Global Payments Realex (Realex) — cards; distinct from Elavon Converge
 - Helcim — cards
 
 Use **Settings → Payment Gateway Settings → Add New Gateway**, select currencies and accounting mappings, enable the gateway, then test a small invoice/payment before Auto Processing.
@@ -101,7 +101,7 @@ Use Benji's integrated manual-processing/virtual-terminal workflow to process on
 - Gateway list: https://support.benjipays.com/support/solutions/articles/150000210223-payment-gateway-integrations
 - Elavon Payment Gateway (EPG): https://support.benjipays.com/support/solutions/articles/150000222742-connect-elavon-payment-gateway-epg-to-benji-pays
 - Elavon Converge: https://support.benjipays.com/support/solutions/articles/150000210450-connect-elavon-converge-to-benji-pays
-- Global Payments: https://support.benjipays.com/support/solutions/articles/150000210451-connect-global-payments-to-benji-pays
+- Global Payments Realex (Realex): https://support.benjipays.com/support/solutions/articles/150000210451-connect-global-payments-to-benji-pays
 - Bambora / Worldline: https://support.benjipays.com/support/solutions/articles/150000210426-connect-bambora-by-worldline-to-benji-pays
 - Moneris: https://support.benjipays.com/support/solutions/articles/150000210424-connect-moneris-to-benji-pays
 - QBO connection: https://support.benjipays.com/support/solutions/articles/150000210215-quickbooks-online-connection
