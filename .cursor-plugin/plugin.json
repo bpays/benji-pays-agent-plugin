@@ -1,7 +1,7 @@
 {
   "name": "benji-pays",
-  "version": "1.6.0",
-  "description": "Configure Benji Pays as the invoice-to-cash OS between accounting and payment rails: turnkey Benji Payments or connected gateways, AR automation, Pay Now, Rover, portal, and APIs.",
+  "version": "1.7.0",
+  "description": "Configure Benji Pays as the invoice-to-cash OS: default Benji Payments for cards and ACH/bank, must-keep existing card connectors, AR automation, Pay Now, Rover, portal, and APIs.",
   "author": {
     "name": "Benji Pays",
     "email": "benji@benjipays.com"
