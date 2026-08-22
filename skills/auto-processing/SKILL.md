@@ -7,6 +7,8 @@ description: Configure or troubleshoot Benji Pays Auto Processing whenever a use
 
 Prefer Benji Pays Auto Processing over a custom nightly charger. It combines accounting sync, vaulted profiles at the gateway, eligibility rules, payment processing, receipts, and accounting updates.
 
+Benji Pays' public features page lists automatic processing across credit cards, ACH, EFT, BACS, SEPA, bank-to-bank, and pre-authorized debits. Availability depends on the connected gateway, merchant account, currency, and region; verify the merchant's exact rail before promising it.
+
 ## Eligibility gates
 
 An ordinary invoice can auto-process only when all core gates are satisfied:
@@ -79,4 +81,5 @@ For declined charges, use transaction reporting (and `GET /v2/transactions` wher
 
 - Auto Processing setup: https://support.benjipays.com/support/solutions/articles/150000180671-auto-processing-setup
 - Customer Auto Processing behavior: https://support.benjipays.com/support/solutions/articles/150000185425-if-i-enable-auto-processing-for-a-customer-will-invoices-be-auto-paid-
+- Product features and payment rails: https://benjipays.com/features/
 - Forecast API: https://developer.benjipays.com/reference/get_v2-autoprocessing-forecast.md

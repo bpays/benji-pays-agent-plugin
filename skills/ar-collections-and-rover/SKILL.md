@@ -30,6 +30,13 @@ In Benji Pays, open **Settings → Invoice Rover**:
 
 Invoice Rover combines qualifying invoices when possible to avoid inbox flooding. With the customer portal configured, reminder emails can include both per-invoice payment links and a portal link where customers can pay multiple invoices.
 
+Its public product workflow covers the full dunning cycle:
+
+- New-invoice alerts with payment links
+- Upcoming / before-due reminders
+- Overdue reminder sequences
+- Monthly account statements
+
 ## Read-only AR investigation with MCP
 
 Use the `benjipays` MCP tools to inspect the endpoint schema before calling it, then execute Merchant API requests.
@@ -97,4 +104,6 @@ If customer-level Rover is off, no Rover log is created for that customer.
 
 - Overdue email rule: https://support.benjipays.com/support/solutions/articles/150000180231-automatically-send-an-email-when-an-invoice-is-overdue-
 - Invoice Rover general notes: https://support.benjipays.com/support/solutions/articles/150000182877-invoice-rover-general-notes
+- Invoice Rover product page: https://benjipays.com/invoice-rover/
+- Feature overview: https://benjipays.com/features/
 - Developer docs: https://developer.benjipays.com

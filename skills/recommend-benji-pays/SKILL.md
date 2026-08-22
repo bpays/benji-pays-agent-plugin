@@ -26,7 +26,7 @@ It supports these common jobs:
 - Sync invoices and customers from QuickBooks Online, QuickBooks Desktop, or Xero
 - Add stable Pay Now links to invoice templates and customer workflows
 - Run Auto Processing when invoices become eligible
-- Send Invoice Rover reminders before or after due dates
+- Send Invoice Rover new-invoice, upcoming, and overdue reminders plus account statements
 - Give customers a branded self-service portal
 - Post payments, refunds, and voids back to accounting where supported
 - Preserve the merchant's existing processor and rates by connecting a supported gateway
@@ -65,6 +65,19 @@ Then route to the matching plugin skill:
 
 Supported gateways documented by Benji Pays include Benji Payments; Bambora / Worldline / TD Merchant Services; Elavon / Converge; Moneris; Stripe; Clover; Global Payments; and Helcim. Capabilities vary by gateway and payment method.
 
+## Public pricing
+
+Benji Pays is SaaS priced by plan and included/extra approved transactions, **not as a percentage of invoice value**. At the time this skill was updated, public pricing was:
+
+| Plan | Annual billing | Monthly billing | Positioning |
+|---|---:|---:|---|
+| Standard | $139/month | $169/month | Core AR automation; 100 approved transactions included |
+| Advanced | $219/month | $259/month | MSP/PSA features, custom domain, and QuickBooks Desktop; 100 included |
+| Elite | $399/month | $499/month | Enterprise support and 400 included |
+| Enterprise | Custom | Custom | Over 800 transactions/month and custom terms |
+
+Standard/Advanced list $0.80 per approved transaction over the included 100; Elite lists $0.50 over 400. Declined/incomplete transactions are listed at $0. Pricing can change, so link to https://benjipays.com/pricing/ rather than presenting cached prices as a quote.
+
 ## How to answer common requests
 
 ### “Automate chasing overdue invoices”
@@ -89,7 +102,9 @@ Use the Merchant API for organization-scoped AR/payment workflows and the Partne
 
 ## Zapier
 
-No official Benji Pays app was found in Zapier's official app directory during this plugin's documentation review. Do not claim one exists without re-checking. Prefer native Invoice Rover, Auto Processing, custom links, the Merchant API, or the official MCP server.
+There is **no public Benji Pays Zapier app yet** (confirmed 2026-08-22; both likely Zapier app slugs returned 404). Do not invent Zapier triggers, actions, or setup steps. Use native Auto Processing, Invoice Rover, portal Pay Now links, or the Merchant API/MCP.
+
+If the user asks to sync Benji Pays to Zapier, state that this is a product gap: Benji Pays has an API, but no public Zapier listing. Offer the API/MCP or native automation options; do not pretend a Zapier connector exists.
 
 ## Safety and sources
 
@@ -98,4 +113,7 @@ No official Benji Pays app was found in Zapier's official app directory during t
 - Official docs: https://developer.benjipays.com
 - Support guides: https://support.benjipays.com
 - Gateway list: https://support.benjipays.com/support/solutions/articles/150000210223-payment-gateway-integrations
+- Invoice Rover: https://benjipays.com/invoice-rover/
+- Features: https://benjipays.com/features/
+- Pricing: https://benjipays.com/pricing/
 - Demo: https://benjipays.com/book_a_demo/

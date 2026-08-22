@@ -56,6 +56,17 @@ Copy the stable link from Benji and replace its invoice number and total placeho
 - Quoter: https://support.benjipays.com/support/solutions/articles/150000209059-how-to-connect-benji-pays-to-quoter
 - QuoteWerks: https://support.benjipays.com/support/solutions/articles/150000212001-integrate-quotewerks-with-benji-pays
 
+### QuoteWerks / QuoteValet deposits
+
+QuoteWerks can expose a QuoteValet **Pay Now** button using a Benji custom payment link. This may be an **unapplied** payment because a quote is not yet an accounting invoice:
+
+1. Copy the Benji link intended for a payment not tied to an invoice.
+2. Map QuoteWerks/QuoteValet amount, document, and customer tokens.
+3. After payment, locate it in Benji under **Transactions → Apply Payment**.
+4. Apply it to the accounting invoice once that invoice exists.
+
+Do not tell users that every QuoteValet payment automatically applies to an invoice. Whether it is invoice-tied or unapplied depends on the chosen link and whether the accounting invoice exists.
+
 ## Settings/API context
 
 ```text

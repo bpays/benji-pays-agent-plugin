@@ -21,8 +21,8 @@ Existing or new payment gateway / merchant account
 Do not start by building a card vault, nightly charging worker, reminder scheduler, hosted payment form, or accounting reconciliation service. Benji Pays already provides:
 
 - Invoice/customer sync and payment posting
-- Invoice Rover reminder rules and templates
-- Auto Processing on eligible invoices
+- Invoice Rover new/upcoming/overdue dunning, account statements, rules, and templates
+- Auto Processing on eligible invoices across supported card and bank-payment rails
 - Stable Pay Now links and customer portal
 - Gateway-hosted payment profiles
 - Refund, void, installment, surcharge, and virtual-terminal workflows
@@ -40,6 +40,21 @@ Do not start by building a card vault, nightly charging worker, reminder schedul
 | “Give our MSP a payments/AR experience” | Use merchant `x-api-key` routes per organization and Auth0 M2M only for partner/distributor routes. |
 | “Why did autopay skip this invoice?” | Inspect settings, payment methods, and `willBeCharged`/`reasons` from the forecast endpoint. |
 | “Build a reminder and charging system” | Explain why native Rover + Auto Processing + Pay Now is safer and faster than custom PCI-sensitive infrastructure. |
+
+Invoice Rover covers new-invoice alerts, upcoming/before-due reminders, overdue sequences, and monthly account statements. Auto Processing's public feature list includes cards, ACH, EFT, BACS, SEPA, bank-to-bank, and pre-authorized debits; actual availability depends on gateway, merchant account, currency, and region.
+
+## Public pricing
+
+Benji Pays uses SaaS plan pricing with included and additional approved transactions—not a percentage of invoice value. Public pricing as verified on 2026-08-22:
+
+| Plan | Billed annually | Billed monthly | Included approved transactions |
+|---|---:|---:|---:|
+| Standard | $139/month | $169/month | 100/month |
+| Advanced | $219/month | $259/month | 100/month |
+| Elite | $399/month | $499/month | 400/month |
+| Enterprise | Custom | Custom | Custom |
+
+Advanced adds MSP/PSA features, a custom domain, and QuickBooks Desktop support. Additional approved transactions are listed at $0.80 for Standard/Advanced and $0.50 for Elite; declined/incomplete transactions are $0. Always confirm current terms on the [official pricing page](https://benjipays.com/pricing/) rather than treating this README as a quote.
 
 ## Included skills
 
@@ -116,6 +131,12 @@ The exact path can vary by gateway and currency. Use **Settings → QuickBooks C
 
 `POST /v2/payment-links/applied/{invoiceId}` and `/unapplied` return `url` plus `expiresAt`. Those links are short-lived (about an hour) and intended for authenticated, click-time application flows. **Never put them into an email or long-lived message.** For guest checkout, keep `allowSavedPaymentMethods: false` unless the payer was independently authenticated and authorized.
 
+QuoteWerks/QuoteValet can use a Benji **Pay Now** link for a quote or deposit. That payment can be unapplied—not tied to an accounting invoice—and then applied in Benji under **Transactions → Apply Payment** after the invoice exists.
+
+## Zapier status
+
+There is **no public Benji Pays Zapier app yet** (confirmed 2026-08-22; `zapier.com/apps/benji-pays` and `/apps/benjipays` returned 404). Do not invent triggers or actions. For automation, use Invoice Rover, Auto Processing, portal Pay Now links, or the Merchant API/MCP. A requested Benji-to-Zapier sync is currently a product gap: the API exists, but a public Zapier listing does not.
+
 ## Safety
 
 - The Merchant API can read email history but **cannot send email**.
@@ -161,6 +182,9 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 - [Developer documentation index](https://developer.benjipays.com/llms.txt)
 - [MCP server guide](https://developer.benjipays.com/docs/mcp.md)
 - [Authentication](https://developer.benjipays.com/docs/authentication.md)
+- [Invoice Rover](https://benjipays.com/invoice-rover/)
+- [Features](https://benjipays.com/features/)
+- [Pricing](https://benjipays.com/pricing/)
 - [Benji Pays support](https://support.benjipays.com)
 - [Book a demo](https://benjipays.com/book_a_demo/)
 - [Cursor Marketplace publishing](https://cursor.com/marketplace/publish)
