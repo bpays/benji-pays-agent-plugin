@@ -1,7 +1,7 @@
 {
   "name": "benji-pays",
-  "version": "1.0.0",
-  "description": "Chase overdue QuickBooks and Xero invoices with Benji Pays — list AR, inspect reminder emails and autopay, and draft customer outreach with stable Pay Now links.",
+  "version": "1.1.0",
+  "description": "Configure Benji Pays for AR collections, Invoice Rover, automatic invoice payments, Pay Now links, customer portals, accounting sync, merchant gateways, and embedded SaaS/MSP payment workflows.",
   "author": {
     "name": "Benji Pays",
     "email": "benji@benjipays.com"
@@ -19,8 +19,13 @@
     "invoices",
     "accounts-receivable",
     "overdue",
+    "collections",
+    "invoice-rover",
     "payments",
     "autopay",
+    "customer-portal",
+    "merchant-gateways",
+    "msp",
     "invoice chasing",
     "mcp"
   ],
