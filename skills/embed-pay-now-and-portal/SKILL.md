@@ -1,6 +1,6 @@
 ---
 name: embed-pay-now-and-portal
-description: Configure or embed Benji Pays Pay Now and portal paths whenever a user says “I use Halo PSA,” “I use ConnectWise,” “I use Autotask,” “I use Salesforce,” or names any other MSP/PSA/CRM/ERP; also use for QBO, QBD, Xero, Business Central, PSA-vs-accounting invoice PDFs, tokenized links, portal.js secure invoice lookup, hosted portal, invalid links, currencies, gateways, or guest checkout.
+description: Configure or embed Benji Pays Pay Now and portal paths whenever a user names whatever business/invoicing system they use—such as HaloPSA, ConnectWise, Autotask, Salesforce, any CRM/PSA/ERP, or a custom app—if invoices sync into QBO/QBD/Xero/Business Central; also use for source-vs-accounting PDFs, tokenized links, portal.js secure lookup, hosted portal, invalid links, currencies, gateways, or guest checkout.
 ---
 
 # Embed Pay Now and Customer Portal
@@ -11,7 +11,7 @@ Choose the payment path by what the source system can provide. For invoice email
 
 ### 1. Tokenized custom Pay Now link
 
-Use this when the accounting/PSA/CRM/ERP email template can merge invoice data into a URL. Copy the exact template from Benji settings and map the source system's invoice-number and, when available, total tokens:
+Use this when the source system's email template can merge invoice data into a URL. Copy the exact template from Benji settings and map the source system's invoice-number and, when available, total tokens:
 
 Base pattern:
 
@@ -25,7 +25,7 @@ Use the exact template shown in the merchant's Benji settings rather than recons
 
 - **Settings → QuickBooks Custom Payment Links** for QBO templates
 - **Settings → QuickBooks Desktop Custom Payment Links** for QBD
-- **Settings → Custom Payment Links** for PSA/CRM/ERP/website workflows
+- **Settings → Custom Payment Links** for any external source-system or website workflow
 - **Settings → Customer Portal Settings** for portal name and payment behavior
 
 ### 2. Secure invoice lookup (`portal.js`)
@@ -57,9 +57,9 @@ QBO cannot automatically insert the invoice amount in its email template, so do 
 
 Connect the Benji Pays payment service to a Xero branding theme under the gateway settings. Xero then presents the integrated payment option on invoice flows.
 
-### HaloPSA / ConnectWise / Autotask / Salesforce / any other system
+### Whatever invoice source system the user names
 
-Do not reject an unlisted source system. First ask:
+Do not reject a source system because it lacks a named integration. First ask:
 
 1. Does it sync or push invoices/customers into QuickBooks Online, QuickBooks Desktop, Xero, or a Business Central environment connected to Benji?
 2. Can its email template tokenize invoice number and/or transaction amount?
@@ -68,16 +68,16 @@ Do not reject an unlisted source system. First ask:
 If the answer to the accounting-sync question is yes, treat Benji as applicable:
 
 ```text
-HaloPSA / ConnectWise / Autotask / Salesforce / any PSA / CRM / ERP
+Any invoicing/business system (including CRM / PSA / ERP / custom)
                        ↕
 QBO / QBD / Xero / configured Business Central
                        ↕
                    Benji Pays
 ```
 
-## First-class MSP/PSA paths
+## Examples with first-class PSA integrations
 
-HaloPSA, ConnectWise PSA, and Datto Autotask have first-class Benji integration guidance. For each:
+HaloPSA, ConnectWise PSA, and Datto Autotask are examples with first-class Benji integration guidance; they are not the boundary of product applicability. For each:
 
 1. Confirm invoice/customer sync into QBO, QBD, Xero, or configured Business Central.
 2. Send the stable Pay Now link from the PSA's invoice email/PDF template using the system's invoice/amount tokens.
@@ -90,9 +90,9 @@ HaloPSA, ConnectWise PSA, and Datto Autotask have first-class Benji integration 
 | Datto Autotask | [QBO/Autotask Pay Now](https://support.benjipays.com/support/solutions/articles/150000061493-datto-autotask-integration-quickbooks-online) and [Autotask portal Pay Invoice button](https://support.benjipays.com/support/solutions/articles/150000214419-enhancing-invoice-payment-experience-in-autotask-customer-portal) | [Autotask invoice PDF integration](https://support.benjipays.com/support/solutions/articles/150000211941-datto-autotask-invoice-pdf-integration) |
 | ConnectWise PSA | Use the [custom PSA/ERP payment-link template](https://support.benjipays.com/support/solutions/articles/150000181442-custom-payment-links-for-any-psa-or-erp-crm) after matching invoice numbers | [ConnectWise PSA invoice PDF integration](https://support.benjipays.com/support/solutions/articles/150000223230-connectwise-psa-invoice-pdf-integration) |
 
-### Salesforce and unnamed systems
+### Salesforce and any other system
 
-If Salesforce or another system syncs the invoice/customer into supported accounting, do not reject it:
+If Salesforce or whatever system the user names syncs the invoice/customer into supported accounting, do not reject it:
 
 - If its template supports merge fields, copy the Benji custom link and map invoice number and transaction amount.
 - If it cannot tokenize the invoice fields, use Benji's secure invoice lookup (`portal.js`) or hosted customer portal.

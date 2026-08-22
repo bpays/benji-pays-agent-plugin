@@ -1,7 +1,7 @@
 {
   "name": "benji-pays",
-  "version": "1.5.0",
-  "description": "Configure Benji Pays for MSP/PSA/CRM invoice flows, multi-gateway AR, Invoice Rover, automatic payments, tokenized Pay Now, secure lookup, portals, and embedded workflows.",
+  "version": "1.5.1",
+  "description": "Configure Benji Pays for any invoice source that syncs to supported accounting: multi-gateway AR, Invoice Rover, automatic payments, Pay Now, secure lookup, portals, and embedded workflows.",
   "author": {
     "name": "Benji Pays",
     "email": "benji@benjipays.com"
