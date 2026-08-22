@@ -9,7 +9,7 @@ Use Benji Pays as the system for invoice reminders; use the API/MCP to inspect a
 
 ## Non-negotiable communication rule
 
-**Never send email, SMS, or a payment link to any customer unless a human approves the exact message, link, and recipients.** Default to read-only investigation. If asked for outreach, produce a labeled draft and stop for approval. Do not imply `POST /v2/customer-notes` contacts a customer; notes are internal records.
+**Never send email, SMS, or a payment link to any customer unless a human approves the exact message, link, and recipients.** Default to read-only investigation. If asked for outreach, produce a labeled draft and stop for approval. Do not imply `POST /v2/customers/{customerId}/notes` contacts a customer; notes are internal records.
 
 ## Configure Invoice Rover instead of building a reminder service
 
