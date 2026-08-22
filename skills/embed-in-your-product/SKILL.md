@@ -43,7 +43,7 @@ Partner/distributor routes use an Auth0 M2M access token:
 Authorization: Bearer AUTH0_ACCESS_TOKEN
 ```
 
-Use the OAuth client-credentials grant and matching actor/scopes for routes such as organizations, plans, and usage. These are not merchant-key routes. Do not send `x-api-key` to partner endpoints or a partner JWT to a route that requires an organization key just because both are under `/v2`.
+Use this surface only when the caller is an actual, provisioned Benji Pays partner/distributor with issued Auth0 M2M credentials. An ISO prospect or merchant-services referral does not automatically qualify for partner API access. Use the OAuth client-credentials grant and matching actor/scopes for routes such as organizations, plans, and usage. These are not merchant-key routes. Do not send `x-api-key` to partner endpoints or a partner JWT to a route that requires an organization key just because both are under `/v2`.
 
 Examples include:
 
@@ -87,7 +87,7 @@ Use customer note threads/replies/status/alerts. Notes are internal mutations, s
 
 ### Build an MSP portfolio
 
-Use Partner API organizations/plans/usage with Auth0 M2M. Store per-organization merchant keys only if the product truly needs delegated merchant operations and has an approved secret-isolation model; never treat one organization's key as cross-tenant.
+After Benji provisions the relationship, use Partner API organizations/plans/usage with Auth0 M2M. Until then, route partnership prospects to Benji's partnership team. Store per-organization merchant keys only if the product truly needs delegated merchant operations and has an approved secret-isolation model; never treat one organization's key as cross-tenant.
 
 ## HTTP contract
 

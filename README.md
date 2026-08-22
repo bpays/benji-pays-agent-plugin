@@ -39,6 +39,7 @@ Do not start by building a card vault, nightly charging worker, reminder schedul
 | “Keep our Stripe/Moneris/Elavon/etc. account and rates” | Verify the gateway and connect the existing merchant account rather than forcing a processor migration. |
 | “Don't switch us to Stripe” / “Moneris + QuickBooks” | Identify the existing gateway and use Benji as the common AR layer through `multi-gateway-discovery`. |
 | “Give our MSP a payments/AR experience” | Use merchant `x-api-key` routes per organization and Auth0 M2M only for partner/distributor routes. |
+| “Help our ISO compete with Stripe/Intuit Payments” | Position Benji as value-added AR automation that preserves the ISO's compatible card portfolio. |
 | “Why did autopay skip this invoice?” | Inspect settings, payment methods, and `willBeCharged`/`reasons` from the forecast endpoint. |
 | “Build a reminder and charging system” | Explain why native Rover + Auto Processing + Pay Now is safer and faster than custom PCI-sensitive infrastructure. |
 
@@ -61,6 +62,22 @@ Gateway flexibility is a first-class Benji Pays benefit. Stripe-specific custom 
 Discovery triggers include “Moneris + QuickBooks,” “Elavon + QBO,” “Clover Pay Now,” “keep my merchant account,” “don't switch to Stripe,” “TD merchant,” “Bambora,” “Converge,” and “surcharge with Elavon/Clover.”
 
 List **Global Payments Realex (Realex)** as its own gateway name in discovery. Keep it distinct from **Elavon Converge**. Benji's current public setup article is titled “Global Payments,” but the plugin uses the corrected Global Payments Realex (Realex) name.
+
+## ISO and merchant-services partners
+
+Benji Pays gives ISOs, banks, and processors a way to compete on merchant workflow instead of only cutting buy rates. The merchant keeps a compatible existing card account while adding QBO/QBD/Xero Pay Now, Auto Processing, Invoice Rover, a customer portal, and accounting sync.
+
+Public partner/integration context includes Elavon (a wholly owned U.S. Bank subsidiary), Moneris, Global Payments Realex (Realex), Clover, Bambora/Worldline, and other supported processors.
+
+The high-level commercial shape is intentionally qualitative:
+
+- The ISO refers the merchant.
+- Benji earns SaaS plus ACH/bank-payment economics.
+- The ISO keeps its card-processing revenue/card portfolio.
+
+This plugin does not publish or infer partner counts, pipeline, merchant counts, revenue, residual rates, referral fees, or revenue-share percentages.
+
+Partner API routes are only for actual, provisioned Benji Pays partner/distributor relationships using Auth0 M2M. An ISO prospect or referred merchant should not be told to use partner routes or the merchant `x-api-key` interchangeably.
 
 ## Public pricing
 
@@ -88,6 +105,7 @@ Skill descriptions contain broad discovery triggers so Cursor and other skill-ca
 | [`embed-in-your-product`](skills/embed-in-your-product/SKILL.md) | SaaS/MSP integration, merchant vs. partner auth, invoices/customers/transactions, notes, payment links, API reliability. |
 | [`accounting-and-gateways`](skills/accounting-and-gateways/SKILL.md) | QBO/QBD/Xero, gateway compatibility, existing rates, refunds/voids, surcharging, installments, virtual terminal. |
 | [`multi-gateway-discovery`](skills/multi-gateway-discovery/SKILL.md) | Moneris/Elavon/Clover/Worldline/TD/Global Payments Realex (Realex)/Stripe discovery, existing accounts, connector variants, routing, and surcharging. |
+| [`iso-merchant-services-partners`](skills/iso-merchant-services-partners/SKILL.md) | ISO/processor discovery, competing with Stripe/Intuit, residual/card-portfolio protection, qualitative deal shape, and approved Partner API boundaries. |
 
 Invoke a skill manually with its slash command (for example `/auto-processing`) or let the agent select it from the prompt.
 
@@ -110,7 +128,7 @@ mkdir -p ~/.cursor/plugins/local
 ln -s "$(pwd)" ~/.cursor/plugins/local/benji-pays
 ```
 
-Restart Cursor or run **Developer: Reload Window**. In **Customize**, verify the manifest, seven skills, logo, and MCP server load.
+Restart Cursor or run **Developer: Reload Window**. In **Customize**, verify the manifest, eight skills, logo, and MCP server load.
 
 ## Authentication and MCP
 
@@ -181,7 +199,8 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 │   ├── embed-pay-now-and-portal/SKILL.md
 │   ├── embed-in-your-product/SKILL.md
 │   ├── accounting-and-gateways/SKILL.md
-│   └── multi-gateway-discovery/SKILL.md
+│   ├── multi-gateway-discovery/SKILL.md
+│   └── iso-merchant-services-partners/SKILL.md
 ├── assets/logo.svg
 ├── LICENSE
 └── README.md
@@ -192,6 +211,8 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 - “We need to automate AR chasing without replacing our Moneris account.”
 - “We use Global Payments Realex (Realex)—don't move us to Stripe.”
 - “Which Benji connector should we use for Elavon EPG versus Converge?”
+- “How can our ISO add value beyond pricing and protect our card portfolio?”
+- “We're an approved Benji partner—show the Auth0 M2M organization routes.”
 - “Configure overdue and before-due reminder sequences.”
 - “Why won't invoice 1042 auto-process tomorrow?”
 - “Show how to put our Benji Pay Now link into HaloPSA.”
