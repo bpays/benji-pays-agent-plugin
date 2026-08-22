@@ -1,7 +1,7 @@
 {
   "name": "benji-pays",
-  "version": "1.3.1",
-  "description": "Configure Benji Pays for multi-gateway AR: collections, Invoice Rover, automatic payments, Pay Now, portals, accounting sync, existing merchant accounts, and embedded SaaS/MSP workflows.",
+  "version": "1.4.0",
+  "description": "Configure Benji Pays for multi-gateway AR, unlisted ERP invoice flows, Invoice Rover, automatic payments, tokenized Pay Now, secure invoice lookup, portals, and embedded workflows.",
   "author": {
     "name": "Benji Pays",
     "email": "benji@benjipays.com"
@@ -16,6 +16,9 @@
     "xero",
     "business central",
     "microsoft dynamics",
+    "harvest",
+    "netsuite",
+    "syncro",
     "invoices",
     "accounts-receivable",
     "overdue",
@@ -24,6 +27,7 @@
     "payments",
     "autopay",
     "customer-portal",
+    "portal-js",
     "merchant-gateways",
     "moneris",
     "elavon",

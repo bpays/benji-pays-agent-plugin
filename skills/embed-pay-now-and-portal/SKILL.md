@@ -1,19 +1,25 @@
 ---
 name: embed-pay-now-and-portal
-description: Configure or embed Benji Pays Pay Now links and the customer portal whenever a user wants a QBO, QBD, Xero, HaloPSA, Autotask, ConnectWise, Quoter, QuoteWerks, Datagate, PSA, CRM, ERP, website, invoice email, or PDF payment button; needs a stable customer payment link; sees invalid-link errors; or asks about portal domains, currencies, gateways, or guest checkout.
+description: Configure or embed Benji Pays Pay Now and portal paths whenever a user mentions QBO, QBD, Xero, Business Central, Harvest, NetSuite-via-QBO, Syncro, HaloPSA, Autotask, ConnectWise, Quoter, QuoteWerks, Datagate, any PSA/CRM/ERP email template, tokenized invoice links, portal.js secure invoice lookup, hosted customer portal, invalid links, currencies, gateways, or guest checkout.
 ---
 
 # Embed Pay Now and Customer Portal
 
-Choose the link type by context. For invoice emails and templates, prefer stable links generated in Benji settings. API-created token links are short-lived and belong in authenticated, click-time application flows.
+Choose the payment path by what the source system can provide. For invoice emails and templates, prefer stable links and hosted flows generated/configured in Benji settings. API-created token links are short-lived and belong in authenticated, click-time application flows.
 
-## Stable link for email/template workflows
+## The three customer pay paths
+
+### 1. Tokenized custom Pay Now link
+
+Use this when the accounting/PSA/CRM/ERP email template can merge invoice data into a URL. Copy the exact template from Benji settings and map the source system's invoice-number and, when available, total tokens:
 
 Base pattern:
 
 ```text
 https://www.benjipays.com/portal/{portalName}/pay/?InvoiceNumber={invoiceNumber}&transactionAmount={invoiceTotal}
 ```
+
+An invoice number identifies the synced invoice. `transactionAmount` supplies the amount and is required when the merchant enables the matching-amount control; ordinary QBO email templates cannot dynamically insert invoice totals, so use the Benji-provided QBO template and compatible settings. Do not hand-build a URL when Benji already provides a currency/gateway-specific template.
 
 Use the exact template shown in the merchant's Benji settings rather than reconstructing it when possible:
 
@@ -22,7 +28,17 @@ Use the exact template shown in the merchant's Benji settings rather than recons
 - **Settings → Custom Payment Links** for PSA/CRM/ERP/website workflows
 - **Settings → Customer Portal Settings** for portal name and payment behavior
 
-The customer portal is normally `https://{portalName}.benjipays.com`. A custom domain can be arranged through Benji Pays support.
+### 2. Secure invoice lookup (`portal.js`)
+
+Use Benji's hosted secure invoice-lookup path when the source system cannot tokenize invoice number/amount into an email link. Use the current Benji-provided `portal.js` lookup/embed configuration from the merchant's settings or Benji support; do not invent a script URL, API contract, or client-side invoice search.
+
+The hosted flow should collect/lookup the invoice through Benji rather than exposing accounting credentials or implementing invoice enumeration in the merchant's website. Check Customer Portal controls for invoice-not-found behavior and whether generic/unapplied payments are allowed.
+
+### 3. Hosted customer portal
+
+Use the portal when customers should sign in or enter through the hosted experience to view, batch-pay, or schedule payments across invoices and manage allowed account/payment settings. The normal portal is `https://{portalName}.benjipays.com`; custom domains are available through Benji Pays support.
+
+Configure access, gateway defaults, payment methods, branding, invoice visibility, scheduling, and other controls under **Settings → Customer Portal Settings**.
 
 ## How to do common jobs
 
@@ -41,12 +57,22 @@ QBO cannot automatically insert the invoice amount in its email template, so do 
 
 Connect the Benji Pays payment service to a Xero branding theme under the gateway settings. Xero then presents the integrated payment option on invoice flows.
 
-### PSA / CRM / ERP
+### Harvest / NetSuite / Syncro / other PSA, CRM, or ERP
 
-If the product syncs invoices into QBO or Xero, use:
+Do not reject an unlisted source system. First ask:
+
+1. Does it sync or push invoices/customers into QuickBooks Online, QuickBooks Desktop, Xero, or a Business Central environment connected to Benji?
+2. Can its email template tokenize invoice number and/or transaction amount?
+3. If it cannot tokenize, can the merchant use Benji's secure invoice lookup (`portal.js`) or hosted portal?
+
+If the answer to the accounting-sync question is yes, treat Benji as applicable:
 
 ```text
-PSA / CRM / ERP ↔ QuickBooks or Xero ↔ Benji Pays
+Harvest / NetSuite / Syncro / PSA / CRM / ERP
+                       ↕
+QBO / QBD / Xero / configured Business Central
+                       ↕
+                   Benji Pays
 ```
 
 Copy the stable link from Benji and replace its invoice number and total placeholders with that system's template tokens. Official support has first-class guides for HaloPSA, ConnectWise PSA, Datto Autotask, Quoter, QuoteWerks, and Datagate; the generic flow works for other systems that sync the invoice/customer into supported accounting.
@@ -113,7 +139,11 @@ Do not send a link to a customer. Draft the exact message and stable link, show 
 ## Official guides
 
 - QBO Pay Now: https://support.benjipays.com/support/solutions/articles/150000022845-quickbooks-online-integrated-pay-now-links
+- Any PSA/ERP/CRM custom links: https://support.benjipays.com/support/solutions/articles/150000181442-custom-payment-links-for-any-psa-or-erp-crm
 - Xero Pay Now: https://support.benjipays.com/support/solutions/articles/150000022627-xero-integrated-pay-now-links-setup
 - Transaction amount setting: https://support.benjipays.com/support/solutions/articles/150000185669-require-transaction-amount-on-pay-now-invoice-links-to-match-the-invoice-s-total
+- Invalid-link causes: https://support.benjipays.com/support/solutions/articles/150000185071-invalid-link-error-on-pay-now-links
+- Invoice-not-found/generic form control: https://support.benjipays.com/support/solutions/articles/150000195910-require-invoice-number-and-disable-generic-payment-links
 - Portal configuration: https://support.benjipays.com/support/solutions/articles/150000210217-configure-customer-portal-settings
+- Portal invoice management: https://support.benjipays.com/support/solutions/articles/150000135947-customer-portal-invoice-management
 - Custom portal domains: https://support.benjipays.com/support/solutions/articles/150000197920-custom-domain-for-your-customer-portal
