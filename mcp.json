@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "benjipays": {
-      "url": "https://benjipays.readme.io/mcp",
+      "url": "https://developer.benjipays.com/mcp",
       "headers": {
         "x-api-key": "${BENJI_PAYS_API_KEY}"
       }

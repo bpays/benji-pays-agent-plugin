@@ -132,7 +132,7 @@ After Benji provisions the relationship, use Partner API organizations/plans/usa
 Remote MCP:
 
 ```text
-https://benjipays.readme.io/mcp
+https://developer.benjipays.com/mcp
 x-api-key: YOUR_MERCHANT_API_KEY
 ```
 

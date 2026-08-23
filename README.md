@@ -141,7 +141,7 @@ Create an organization-scoped key in the Benji Pays merchant app under **Setting
 Official remote MCP:
 
 ```text
-https://benjipays.readme.io/mcp
+https://developer.benjipays.com/mcp
 ```
 
 Manual Cursor MCP setup, if the plugin is not installed:
@@ -150,7 +150,7 @@ Manual Cursor MCP setup, if the plugin is not installed:
 {
   "mcpServers": {
     "benjipays": {
-      "url": "https://benjipays.readme.io/mcp",
+      "url": "https://developer.benjipays.com/mcp",
       "headers": {
         "x-api-key": "YOUR_BENJI_PAYS_API_KEY"
       }
@@ -161,7 +161,7 @@ Manual Cursor MCP setup, if the plugin is not installed:
 
 The MCP exposes endpoint discovery and execution tools for the Merchant API at `https://api.benjipays.com/v2`.
 
-[`server.json`](server.json) is the MCP Registry manifest for the hosted remote server at `https://benjipays.readme.io/mcp` (not an npm package).
+[`server.json`](server.json) is the MCP Registry manifest for the hosted remote server at `https://developer.benjipays.com/mcp` (not an npm package).
 
 ## Three customer payment paths
 
