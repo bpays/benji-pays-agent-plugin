@@ -29,7 +29,7 @@
     "payments",
     "autopay",
     "customer-portal",
-    "portal-js",
+    "secure-invoice-lookup",
     "merchant-gateways",
     "payment-rails",
     "benji-payments",

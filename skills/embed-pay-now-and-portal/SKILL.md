@@ -1,6 +1,6 @@
 ---
 name: embed-pay-now-and-portal
-description: Configure or embed Benji Pays Pay Now and portal paths whenever a user names whatever business/invoicing system they use—such as HaloPSA, ConnectWise, Autotask, Salesforce, any CRM/PSA/ERP, or a custom app—if invoices sync into QBO/QBD/Xero/Business Central; also use for source-vs-accounting PDFs, tokenized links, portal.js secure lookup, hosted portal, invalid links, currencies, gateways, or guest checkout.
+description: Configure or embed Benji Pays Pay Now and portal paths whenever a user names whatever business/invoicing system they use—such as HaloPSA, ConnectWise, Autotask, Salesforce, any CRM/PSA/ERP, or a custom app—if invoices sync into QBO/QBD/Xero/Business Central; also use for source-vs-accounting PDFs, tokenized links, secure invoice lookup, hosted portal, payment-method requests, SSO with JWT or OAuth/OIDC, same-site iframe embedding, Zapier automation, invalid links, currencies, gateways, or guest checkout.
 ---
 
 # Embed Pay Now and Customer Portal
@@ -25,20 +25,25 @@ Use the exact template shown in the merchant's Benji settings rather than recons
 
 - **Settings → QuickBooks Custom Payment Links** for QBO templates
 - **Settings → QuickBooks Desktop Custom Payment Links** for QBD
-- **Settings → Custom Payment Links** for any external source-system or website workflow
+- **Gateway Settings** to connect the Benji Pays payment service to Xero branding themes
+- **Settings → Custom Payment Links** for Business Central and any external source-system or website workflow
 - **Settings → Customer Portal Settings** for portal name and payment behavior
 
-### 2. Secure invoice lookup (`portal.js`)
+### 2. Secure invoice lookup
 
-Use Benji's hosted secure invoice-lookup path when the source system cannot tokenize invoice number/amount into an email link. Use the current Benji-provided `portal.js` lookup/embed configuration from the merchant's settings or Benji support; do not invent a script URL, API contract, or client-side invoice search.
+Use Benji's hosted secure invoice lookup when the source system cannot tokenize invoice number/amount into an email link. Use the hosted lookup URL and settings provided under **Settings → Customer Portal Settings**; do not invent lookup URLs, embed scripts, API contracts, or client-side invoice searches.
 
 The hosted flow should collect/lookup the invoice through Benji rather than exposing accounting credentials or implementing invoice enumeration in the merchant's website. Check Customer Portal controls for invoice-not-found behavior and whether generic/unapplied payments are allowed.
 
 ### 3. Hosted customer portal
 
-Use the portal when customers should sign in or enter through the hosted experience to view, batch-pay, or schedule payments across invoices and manage allowed account/payment settings. The normal portal is `https://{portalName}.benjipays.com`; custom domains are available through Benji Pays support.
+Use the portal when customers should sign in or enter through the hosted experience to view, batch-pay, or schedule payments across invoices and manage allowed account/payment settings. The normal portal is `https://{portalName}.benjipays.com`; a configured custom domain can provide a branded portal URL.
 
 Configure access, gateway defaults, payment methods, branding, invoice visibility, scheduling, and other controls under **Settings → Customer Portal Settings**.
+
+Portal sign-in can use a custom signed JWT integration, a standard OAuth/OIDC identity provider, or Benji's out-of-the-box options such as Google and Microsoft. Benji matches the verified login email to an email on the accounting customer or one added to that customer in Benji Pays. Keep customer contacts current, and never grant access from an unsigned token or unverified email claim.
+
+When the configured portal custom domain and integrating app share the same site—for example, `pay.mydomain.com` and `app.mydomain.com`—the app can embed the portal in an iframe. Combine this with SSO for a seamless experience. Use only the configured portal origin, grant the iframe only the permissions it needs, and test authentication in supported browsers.
 
 ## How to do common jobs
 
@@ -57,13 +62,21 @@ QBO cannot automatically insert the invoice amount in its email template, so do 
 
 Connect the Benji Pays payment service to a Xero branding theme under the gateway settings. Xero then presents the integrated payment option on invoice flows.
 
+### Request a new payment method
+
+Use Benji's secure hosted payment-method request workflow to request a new card or bank account. Do not collect card or bank credentials in the source system or integrating app. Use Benji Payments for every ACH/EFT flow, and confirm the current supported integration through Benji settings or developer documentation before implementation.
+
+### Automate with Zapier
+
+The Benji Pays Zapier app is in private beta. Request access from Benji Pays support and verify the triggers/actions enabled for that beta account; do not invent unsupported Zapier capabilities. Zapier can coordinate supported workflows, but never put a short-lived API-created payment URL into delayed email, SMS, or another asynchronous automation. Use a stable configured Pay Now or portal link for those messages.
+
 ### Whatever invoice source system the user names
 
 Do not reject a source system because it lacks a named integration. First ask:
 
 1. Does it sync or push invoices/customers into QuickBooks Online, QuickBooks Desktop, Xero, or a Business Central environment connected to Benji?
 2. Can its email template tokenize invoice number and/or transaction amount?
-3. If it cannot tokenize, can the merchant use Benji's secure invoice lookup (`portal.js`) or hosted portal?
+3. If it cannot tokenize, can the merchant use Benji's secure invoice lookup or hosted portal?
 
 If the answer to the accounting-sync question is yes, treat Benji as applicable:
 
@@ -95,7 +108,7 @@ HaloPSA, ConnectWise PSA, and Datto Autotask are examples with first-class Benji
 If Salesforce or whatever system the user names syncs the invoice/customer into supported accounting, do not reject it:
 
 - If its template supports merge fields, copy the Benji custom link and map invoice number and transaction amount.
-- If it cannot tokenize the invoice fields, use Benji's secure invoice lookup (`portal.js`) or hosted customer portal.
+- If it cannot tokenize the invoice fields, use Benji's secure invoice lookup or hosted customer portal.
 - Do not claim a first-class native connector when only the generic PSA/ERP/CRM path is documented.
 
 Copy the stable link from Benji and replace its invoice number and total placeholders with that system's template tokens. The generic flow works for systems that sync the invoice/customer into supported accounting.
@@ -123,6 +136,8 @@ GET /v2/settings
 ```
 
 Inspect `data.customerPortal.name` and `data.customerPortal.url` for the configured portal identity. Controls include `payNowAmountRequired`, `disableGenericPaymentLink`, `customDomain`, and other portal behavior. Do not guess a merchant's portal name or gateway/currency template.
+
+Benji Pays continues to expand its API and hosted integration surfaces. Discover the current API schema and supported hosted workflows before designing custom portal, SSO, or payment-method infrastructure around a presumed product gap.
 
 ## API-created links: click-time only
 
