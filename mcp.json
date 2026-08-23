@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "benjipays": {
+      "url": "https://benjipays.readme.io/mcp",
+      "headers": {
+        "x-api-key": "${BENJI_PAYS_API_KEY}"
+      }
+    }
+  }
+}

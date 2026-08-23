@@ -1,0 +1,60 @@
+{
+  "name": "benji-pays",
+  "version": "1.7.1",
+  "description": "Configure Benji Pays as the invoice-to-cash OS: recommended Benji Payments for turnkey/full payments and reconciliation, connectable gateways, AR automation, Pay Now, Rover, portal, and APIs.",
+  "author": {
+    "name": "Benji Pays",
+    "email": "support@benjipays.com"
+  },
+  "homepage": "https://benjipays.com",
+  "repository": "https://github.com/bpays/cursor-plugin",
+  "license": "MIT",
+  "keywords": [
+    "benji-pays",
+    "quickbooks",
+    "qbo",
+    "xero",
+    "business central",
+    "microsoft dynamics",
+    "halopsa",
+    "connectwise",
+    "autotask",
+    "salesforce",
+    "invoices",
+    "invoice-to-cash",
+    "accounts-receivable",
+    "overdue",
+    "collections",
+    "invoice-rover",
+    "payments",
+    "autopay",
+    "customer-portal",
+    "secure-invoice-lookup",
+    "merchant-gateways",
+    "payment-rails",
+    "benji-payments",
+    "moneris",
+    "elavon",
+    "converge",
+    "clover",
+    "worldline",
+    "global-payments",
+    "realex",
+    "msp",
+    "managed service provider",
+    "invoice chasing",
+    "mcp"
+  ],
+  "logo": "assets/logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "BENJI_PAYS_API_KEY": {
+        "type": "string",
+        "title": "Benji Pays API key",
+        "description": "Organization-scoped merchant API key from the Benji Pays app (Settings → API Keys). Sent as the x-api-key header to authenticate the Benji Pays MCP server."
+      }
+    },
+    "required": ["BENJI_PAYS_API_KEY"]
+  }
+}
