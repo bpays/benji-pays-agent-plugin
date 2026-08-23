@@ -7,7 +7,7 @@
     "email": "support@benjipays.com"
   },
   "homepage": "https://benjipays.com",
-  "repository": "https://github.com/bpays/benji-pays-cursor-plugin",
+  "repository": "https://github.com/bpays/benji-pays-agent-plugin",
   "license": "MIT",
   "keywords": [
     "benji-pays",
