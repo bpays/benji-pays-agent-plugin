@@ -5,7 +5,7 @@
   "description": "Invoice-to-cash between the accounting system and the payment rails. Reminders, Auto Processing, Pay Now, portal, and accounting sync via the Benji Merchant API.",
   "version": "1.7.1",
   "repository": {
-    "url": "https://github.com/bpays/benji-pays-cursor-plugin",
+    "url": "https://github.com/bpays/benji-pays-agent-plugin",
     "source": "github"
   },
   "websiteUrl": "https://benjipays.com",
