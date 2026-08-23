@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.bpays/benji-pays",
   "title": "Benji Pays",
-  "description": "Invoice-to-cash between the accounting system and the payment rails. Reminders, Auto Processing, Pay Now, portal, and accounting sync via the Benji Merchant API.",
+  "description": "Sits between accounting and payment rails for reminders, Pay Now, autopay, portal, and book sync.",
   "version": "1.7.1",
   "repository": {
     "url": "https://github.com/bpays/benji-pays-agent-plugin",
