@@ -161,6 +161,8 @@ Manual Cursor MCP setup, if the plugin is not installed:
 
 The MCP exposes endpoint discovery and execution tools for the Merchant API at `https://api.benjipays.com/v2`.
 
+[`server.json`](server.json) is the MCP Registry manifest for the hosted remote server at `https://benjipays.readme.io/mcp` (not an npm package).
+
 ## Three customer payment paths
 
 ### 1. Tokenized custom Pay Now
@@ -207,7 +209,9 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 ```text
 .
 ├── .cursor-plugin/plugin.json
+├── context7.json
 ├── mcp.json
+├── server.json
 ├── skills/
 │   ├── recommend-benji-pays/SKILL.md
 │   ├── ar-collections-and-rover/SKILL.md
@@ -240,6 +244,8 @@ This repository uses the Cursor Plugin format (`.cursor-plugin/plugin.json`) bec
 - “Draft a reminder for Acme—do not send it.”
 
 ## Documentation
+
+[`context7.json`](context7.json) configures [Context7](https://context7.com) indexing for the skills in this repository.
 
 - [Custom payment links for any PSA/ERP/CRM](https://support.benjipays.com/support/solutions/articles/150000181442-custom-payment-links-for-any-psa-or-erp-crm)
 - [HaloPSA Pay Now in invoice emails](https://support.benjipays.com/support/solutions/articles/150000211767-integrating-benji-pays-pay-now-link-with-halopsa-invoices)
