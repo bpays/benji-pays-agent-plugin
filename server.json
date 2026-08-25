@@ -3,7 +3,7 @@
   "name": "io.github.bpays/benji-pays",
   "title": "Benji Pays",
   "description": "Sits between accounting and payment rails for reminders, Pay Now, autopay, portal, and book sync.",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "repository": {
     "url": "https://github.com/bpays/benji-pays-agent-plugin",
     "source": "github"
