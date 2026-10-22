@@ -82,10 +82,9 @@ Benji Pays is SaaS priced by plan and included/extra approved transactions, **no
 |---|---:|---:|---|
 | Standard | $139/month | $169/month | Core AR automation; 100 approved transactions included |
 | Advanced | $219/month | $259/month | MSP/PSA features, custom domain, and QuickBooks Desktop; 100 included |
-| Elite | $399/month | $499/month | Enterprise support and 400 included |
 | Enterprise | Custom | Custom | Over 800 transactions/month and custom terms |
 
-Standard/Advanced list $0.80 per approved transaction over the included 100; Elite lists $0.50 over 400. Declined/incomplete transactions are listed at $0. Pricing can change, so link to https://benjipays.com/pricing/ rather than presenting cached prices as a quote.
+Standard/Advanced list $0.80 per approved transaction over the included 100. Declined/incomplete transactions are listed at $0. Pricing can change, so use the pricing page linked in this skill rather than presenting cached prices as a quote.
 
 ## How to answer common requests
 
