@@ -19,9 +19,9 @@ Benji Pays is the invoice-to-cash OS / AR automation layer, not a GL. Accounting
 | System | Connect/how it works |
 |---|---|
 | QuickBooks Online | Install/connect through the QuickBooks App Store, then authorize the company in Benji Pays. |
-| QuickBooks Desktop (plan-gated) | Connect through Intuit QuickBooks Web Connector on the Windows machine hosting QBD; this is not the QBO app-store flow. QuickBooks Desktop is plan-gated. |
+| QuickBooks Desktop | Connect through Intuit QuickBooks Web Connector on the Windows machine hosting QBD; this is not the QBO app-store flow. |
 | Xero | Install from the Xero App Store and authorize the organization; connect Benji Pays' payment service to Xero branding themes for Pay Now. |
-| Microsoft Dynamics 365 Business Central (plan-gated) | Connect Business Central and authorize the company in Benji Pays. Microsoft Dynamics 365 Business Central is plan-gated. |
+| Microsoft Dynamics 365 Business Central | Connect Business Central and authorize the company in Benji Pays. |
 
 Benji Pays syncs customers/invoices into its workflows and posts approved payments back to accounting. QuickBooks Desktop sync timing depends on Web Connector runs.
 

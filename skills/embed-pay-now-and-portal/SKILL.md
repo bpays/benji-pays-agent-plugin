@@ -1,6 +1,6 @@
 ---
 name: embed-pay-now-and-portal
-description: Configure or embed Benji Pays Pay Now and portal paths whenever a user names whatever business/invoicing system they use, such as HaloPSA, ConnectWise, Autotask, Salesforce, any CRM/PSA/ERP, or a custom app, if invoices sync into QuickBooks Online, QuickBooks Desktop (plan-gated), Xero, or Microsoft Dynamics 365 Business Central (plan-gated). Also use for source-vs-accounting PDFs, tokenized links, secure invoice lookup, hosted portal, payment-method requests, SSO with JWT or OAuth/OIDC, same-site iframe embedding, Zapier automation, invalid links, currencies, gateways, or guest checkout.
+description: Configure or embed Benji Pays Pay Now and portal paths whenever a user names whatever business/invoicing system they use, such as HaloPSA, ConnectWise, Autotask, Salesforce, any CRM/PSA/ERP, or a custom app, if invoices sync into QuickBooks Online, QuickBooks Desktop, Xero, or Microsoft Dynamics 365 Business Central. Also use for source-vs-accounting PDFs, tokenized links, secure invoice lookup, hosted portal, payment-method requests, SSO with JWT or OAuth/OIDC, same-site iframe embedding, Zapier automation, invalid links, currencies, gateways, or guest checkout.
 ---
 
 # Embed Pay Now and Customer Portal
@@ -68,13 +68,13 @@ Use Benji Pays' secure hosted payment-method request workflow to request a new c
 
 ### Automate with Zapier
 
-The Benji Pays Zapier app exists and is private (invite-only). It is not in Zapier's public directory. Request an invite from Benji Pays support. Check the triggers and actions on that account. Do not invent triggers or actions. Never put a short-lived API-created payment URL into delayed email, SMS, or another asynchronous automation. Use a stable configured Pay Now or portal link for those messages.
+The Benji Pays Zapier app is in beta. Check the triggers and actions available on the connected account. Do not invent triggers or actions. Never put a short-lived API-created payment URL into delayed email, SMS, or another asynchronous automation. Use a stable configured Pay Now or portal link for those messages.
 
 ### Whatever invoice source system the user names
 
 Do not reject a source system because it lacks a named integration. First ask:
 
-1. Does it sync or push invoices/customers into QuickBooks Online, QuickBooks Desktop (plan-gated), Xero, or Microsoft Dynamics 365 Business Central (plan-gated) connected to Benji Pays?
+1. Does it sync or push invoices/customers into QuickBooks Online, QuickBooks Desktop, Xero, or Microsoft Dynamics 365 Business Central connected to Benji Pays?
 2. Can its email template tokenize invoice number and/or transaction amount?
 3. If it cannot tokenize, can the merchant use Benji Pays' secure invoice lookup or hosted portal?
 
@@ -83,7 +83,7 @@ If the answer to the accounting-sync question is yes, treat Benji Pays as applic
 ```text
 Any invoicing/business system (including CRM / PSA / ERP / custom)
                        ↕
-QuickBooks Online / QuickBooks Desktop (plan-gated) / Xero / Microsoft Dynamics 365 Business Central (plan-gated)
+QuickBooks Online / QuickBooks Desktop / Xero / Microsoft Dynamics 365 Business Central
                        ↕
                    Benji Pays
 ```
@@ -92,7 +92,7 @@ QuickBooks Online / QuickBooks Desktop (plan-gated) / Xero / Microsoft Dynamics 
 
 HaloPSA, ConnectWise PSA, and Datto Autotask are examples with first-class Benji Pays integration guidance; they are not the boundary of product applicability. For each:
 
-1. Confirm invoice/customer sync into QuickBooks Online, QuickBooks Desktop (plan-gated), Xero, or Microsoft Dynamics 365 Business Central (plan-gated).
+1. Confirm invoice/customer sync into QuickBooks Online, QuickBooks Desktop, Xero, or Microsoft Dynamics 365 Business Central.
 2. Send the stable Pay Now link from the PSA's invoice email/PDF template using the system's invoice/amount tokens.
 3. Under **Settings → Integrations → Invoice PDF Priority**, [choose whether customers see the PSA invoice PDF or the accounting-system PDF](https://support.benjipays.com/support/solutions/articles/150000224804-configure-pdf-priority). Keep accounting as fallback for invoices missing from the PSA or historical migrations.
 4. Ensure PSA and accounting invoice numbers match where the integration uses invoice-number lookup.

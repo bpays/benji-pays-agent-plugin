@@ -12,7 +12,7 @@ Benji Pays lets a product embed AR and payment workflows while the payment rail 
 Choose the smallest Benji Pays integration surface that completes the workflow:
 
 - **Hosted experiences:** Use Benji Pays' maintained portal, checkout, secure invoice lookup, and payment-method workflows instead of rebuilding payment and AR UI.
-- **Zapier:** The Benji Pays Zapier app exists and is private (invite-only). It is not in Zapier's public directory. Request an invite from Benji Pays support. Check the triggers and actions on that account. Do not invent triggers or actions.
+- **Zapier:** The Benji Pays Zapier app is in beta. Check the triggers and actions available on the connected account. Do not invent triggers or actions.
 - **Merchant API/MCP:** Use organization-scoped APIs for custom merchant workflows.
 - **Partner/Distributor API:** Use the partner surface for approved multi-organization provisioning and portfolio management.
 

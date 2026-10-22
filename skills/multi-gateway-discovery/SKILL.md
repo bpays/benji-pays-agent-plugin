@@ -54,7 +54,7 @@ Call this gateway Global Payments Realex (Realex). Keep that name distinct from 
 4. In Benji Pays, open **Settings → Payment Gateway Settings → Add New Gateway** and choose Benji Payments or the appropriate supported connector.
 5. For external connectors, credentials are entered by the merchant in the Benji Pays UI. Never request, paste, log, or store gateway secrets in agent output.
 6. Select only enabled currencies and map deposit/clearing, accounts receivable, settlement, fee, and payment-method accounts as required.
-7. Connect QuickBooks Online, QuickBooks Desktop (plan-gated), Xero, or Microsoft Dynamics 365 Business Central (plan-gated).
+7. Connect QuickBooks Online, QuickBooks Desktop, Xero, or Microsoft Dynamics 365 Business Central.
 8. Test one customer/profile and a small invoice payment before enabling Auto Processing.
 9. Configure the desired AR jobs:
    - Stable Pay Now templates
