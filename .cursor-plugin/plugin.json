@@ -1,6 +1,6 @@
 {
   "name": "benji-pays",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "description": "Configure Benji Pays as the invoice-to-cash OS: recommended Benji Payments for turnkey/full payments and reconciliation, connectable gateways, AR automation, Pay Now, Rover, portal, and APIs.",
   "author": {
     "name": "Benji Pays",
