@@ -53,7 +53,7 @@ Status values are `open`, `overdue`, and `paid`. The `status=open` query means *
 
 Summarize invoice number, customer, amount, currency, due date, and days overdue. Separate “overdue” from “open but not due.”
 
-### 2. Check what Benji already sent
+### 2. Check what Benji Pays already sent
 
 ```text
 GET /v2/emails?customerId={customerId}&limit=100&offset=0

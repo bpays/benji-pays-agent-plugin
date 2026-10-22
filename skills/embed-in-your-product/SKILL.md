@@ -9,10 +9,10 @@ Benji Pays lets a product embed AR and payment workflows while the payment rail 
 
 ## Use packaged integration surfaces before custom code
 
-Choose the smallest Benji integration surface that completes the workflow:
+Choose the smallest Benji Pays integration surface that completes the workflow:
 
-- **Hosted experiences:** Use Benji's maintained portal, checkout, secure invoice lookup, and payment-method workflows instead of rebuilding payment and AR UI.
-- **Zapier:** The Benji Pays Zapier app is in private beta and can support no-code automation. Request access from Benji Pays support, verify the triggers/actions available to that beta account, and do not invent unsupported Zapier capabilities.
+- **Hosted experiences:** Use Benji Pays' maintained portal, checkout, secure invoice lookup, and payment-method workflows instead of rebuilding payment and AR UI.
+- **Zapier:** The Benji Pays Zapier app is in beta. Check the triggers and actions available on the connected account. Do not invent triggers or actions.
 - **Merchant API/MCP:** Use organization-scoped APIs for custom merchant workflows.
 - **Partner/Distributor API:** Use the partner surface for approved multi-organization provisioning and portfolio management.
 
@@ -86,21 +86,21 @@ Check each endpoint's actor and scope requirements in the current OpenAPI docs.
 
 ### Request a new payment method
 
-Use Benji's secure hosted payment-method request workflow to request a new card or bank account from the customer. Keep card and bank credentials out of the integrating product, and use Benji Payments for every ACH/EFT flow. Confirm the current supported integration through Benji settings or developer documentation rather than assuming a write route from the `GET /v2/payment-methods` endpoint.
+Use Benji Pays' secure hosted payment-method request workflow to request a new card or bank account from the customer. Keep card and bank credentials out of the integrating product, and use Benji Payments for every ACH/EFT flow. Confirm the current supported integration through Benji Pays settings or developer documentation rather than assuming a write route from the `GET /v2/payment-methods` endpoint.
 
 ### Add customer SSO
 
-Benji customer portal access can use:
+Benji Pays customer portal access can use:
 
 - A custom signed JWT integration
 - A standard OAuth/OIDC identity provider
 - Benji's out-of-the-box sign-in options, including Google and Microsoft
 
-Benji matches the verified login email to an email on the accounting customer or one added to that customer in Benji Pays. Keep those customer contacts current. For custom SSO, validate the token signature, issuer, audience, expiry, and verified email before granting access; never trust an unsigned JWT or an unverified email claim.
+Benji Pays matches the verified login email to an email on the accounting customer or one added to that customer in Benji Pays. Keep those customer contacts current. For custom SSO, validate the token signature, issuer, audience, expiry, and verified email before granting access; never trust an unsigned JWT or an unverified email claim.
 
 ### Embed the customer portal
 
-When the Benji portal uses a custom domain under the same site as the integrating app—for example, `pay.mydomain.com` embedded in `app.mydomain.com`—embed the portal in an iframe and combine it with SSO for a seamless customer experience. Use only the configured portal origin, restrict iframe permissions to what the portal needs, and test the sign-in flow in supported browsers.
+When the Benji Pays portal uses a custom domain on the same site as your app (for example, `pay.mydomain.com` inside `app.mydomain.com`), embed the portal in an iframe and use SSO. Use only the configured portal origin. Restrict iframe permissions to what the portal needs. Test the sign-in flow in supported browsers.
 
 ### Take a deposit or payment without an invoice
 
@@ -108,7 +108,7 @@ Call `POST /v2/payment-links/unapplied` at click time with required `source` (`d
 
 ### Explain an upcoming autopay run
 
-Call `GET /v2/autoprocessing-forecast?startDate=YYYY-MM-DD`, then expose `willBeCharged`, amount, and `reasons` rather than reimplementing Benji's rules.
+Call `GET /v2/autoprocessing-forecast?startDate=YYYY-MM-DD`, then expose `willBeCharged`, amount, and `reasons` rather than reimplementing Benji Pays' rules.
 
 ### Add internal collections context
 
@@ -116,7 +116,7 @@ Use customer note threads/replies/status/alerts. Notes are internal mutations, s
 
 ### Build an MSP portfolio
 
-After Benji provisions the relationship, use Partner API organizations/plans/usage with Auth0 M2M. Store per-organization merchant keys only if the product truly needs delegated merchant operations and has an approved secret-isolation model; never treat one organization's key as cross-tenant.
+After Benji Pays provisions the relationship, use Partner API organizations/plans/usage with Auth0 M2M. Store per-organization merchant keys only if the product truly needs delegated merchant operations and has an approved secret-isolation model; never treat one organization's key as cross-tenant.
 
 ## HTTP contract
 
@@ -142,8 +142,8 @@ Tools are `list-endpoints`, `search-endpoints`, `get-endpoint`, and `execute-req
 
 - Never collect, log, or store raw card or bank credentials.
 - Never expose merchant keys, client secrets, JWTs, or full payment method details.
-- Never collect card or bank credentials in the integrating product; use Benji's secure hosted payment-method workflow.
-- Match portal access only from a verified SSO/login email to an accounting or Benji customer contact.
+- Never collect card or bank credentials in the integrating product; use Benji Pays' secure hosted payment-method workflow.
+- Match portal access only from a verified SSO/login email to an accounting or Benji Pays customer contact.
 - Use `allowSavedPaymentMethods: false` unless payer authorization is independently established.
 - Require explicit human approval before any external customer message.
 - Use least-privilege scopes and server-side secret storage.

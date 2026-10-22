@@ -64,7 +64,7 @@ Use `GET /v2/settings` for company configuration and `GET /v2/payment-methods` f
 
 - `willBeCharged: true`: report the forecast amount and date; call it a forecast, not a guarantee of gateway approval.
 - Customer autopay off: enable Auto Processing for the customer if the merchant intends to charge them.
-- No enabled profile: request a payment method through Benji's secure portal/profile workflow; do not build a card form that sends card data to your server.
+- No enabled profile: request a payment method through Benji Pays' secure portal/profile workflow; do not build a card form that sends card data to your server.
 - Due/start date not met: explain when it becomes eligible.
 - Memo, amount, terms, or installment rule: identify the matching setting and recommend a configuration change only after confirming intent.
 - Decline: a decline happens at attempted payment time and is not the same as forecast ineligibility. Review transaction/gateway results and the payment profile; do not claim forecast `reasons` predicts issuer approval.
